@@ -30,4 +30,8 @@ class Customer:
         return f"{self.forename} {self.surname}"
 
     def __repr__(self):
-        return f"(Fullname: {self.forename}, {self.surname} Phone Number: {self.phone_number} Email Address:{self.email_address} Postcode: {self.postcode})"
+        fullname = self.get_fullname().ljust(30)
+        phone_number = str(self.phone_number).ljust(30)
+        email_address = str(self.email_address).ljust(30)
+        postcode = str(self.postcode)
+        return f"{fullname}{phone_number}{email_address}{postcode}"
