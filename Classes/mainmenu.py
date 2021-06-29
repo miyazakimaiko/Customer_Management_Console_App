@@ -32,8 +32,8 @@ class MainMenu:
 
     def view_customers(self, customers):
         print()
-        print('Name: '.ljust(30) + 'Phone Number: '.ljust(30) + 'Email Address: '.ljust(30) + 'Postcode: '.ljust(30))
-        print(''.ljust(100, '-'))
+        print('ID: '.ljust(10) + 'Name: '.ljust(30) + 'Phone Number: '.ljust(30) + 'Email Address: '.ljust(30) + 'Postcode: '.ljust(30))
+        print(''.ljust(120, '-'))
 
         for customer in customers.group:
             print(customer)
