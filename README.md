@@ -31,4 +31,4 @@ Version 2:
 Add one more field to the Customer record - CustomerID. This will be unique and automatically generated.
 
 
-<img src="class_diagram.drawio.png"/>
+<img src="class_diagram.drawio.png" style="display:block; margin: 0 auto;"/>
