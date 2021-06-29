@@ -1,4 +1,5 @@
 from .utils import Utils
+from .customer import Customer
 
 class MainMenu:
 
@@ -38,6 +39,26 @@ class MainMenu:
             print(customer)
 
 
+    def add_new_customer_via_input(self, customers):
+        phone_number = input('Please enter phone_number: ')
+        
+        for customer in customers.group:
+            if phone_number == customer.phone_number:
+                print('This phone number is already registered. Please try with different phone number.')
+                self.get_new_customer_via_input()
+
+        forename = input('Please enter forename: ')
+        surname = input('Please enter surname: ')
+        email = input('Please enter email address: ')
+        postcode = input('Please enter postcode: ')
+
+        new_customer = Customer(forename, surname, phone_number, email, postcode)
+        customers.add(new_customer)
+
+        print()
+        print('Customer is successfully added.')
+
+
     def main(self, customers):
         Utils.clear_screen()
 
@@ -49,10 +70,15 @@ class MainMenu:
             Utils.clear_screen()
             print('Selected: 1. View existing Customers')
             self.view_customers(customers)
+            input('Press Enter to go back to Menu...')
+            self.main(customers)
 
         elif selection == 2:
             Utils.clear_screen()
             print('Selected: 2. Add Customer')
+            self.add_new_customer_via_input(customers)
+            input('Press Enter to go back to Menu...')
+            self.main(customers)
 
         elif selection == 3:
             Utils.clear_screen()
