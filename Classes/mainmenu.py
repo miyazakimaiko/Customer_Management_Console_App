@@ -38,15 +38,23 @@ class MainMenu:
         for customer in customers.group:
             print(customer)
 
+        print()
 
-    def add_new_customer_via_input(self, customers):
+
+    def get_new_customer_phone_number_via_input(self, customers):
         phone_number = input('Please enter phone_number: ')
         
         for customer in customers.group:
             if phone_number == customer.phone_number:
                 print('This phone number is already registered. Please try with different phone number.')
-                self.get_new_customer_via_input()
+                phone_number = self.get_new_customer_phone_number_via_input(customers)
+                break
 
+        return phone_number
+
+
+    def add_new_customer_via_input(self, customers):
+        phone_number = self.get_new_customer_phone_number_via_input(customers)
         forename = input('Please enter forename: ')
         surname = input('Please enter surname: ')
         email = input('Please enter email address: ')
@@ -57,6 +65,7 @@ class MainMenu:
 
         print()
         print('Customer is successfully added.')
+        print()
 
 
     def main(self, customers):
